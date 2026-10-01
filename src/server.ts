@@ -7,8 +7,8 @@ async function startServer(): Promise<void> {
     await verifyDatabaseConnection();
     console.log(`Connected to MySQL database: ${env.DB_NAME}`);
 
-    const server = app.listen(env.PORT, () => {
-      console.log(`API running at http://localhost:${env.PORT}`);
+    const server = app.listen(env.PORT,'0.0.0.0', () => {
+      console.log(`API running on port ${env.PORT}`);
     });
 
     const shutdown = (signal: string) => {
